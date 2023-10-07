@@ -14,9 +14,8 @@ import Banner from "./CompUtils/Banner";
 import Navbarcom from "./CompUtils/Header/Header";
 import Specification from "./specification/Specification";
 import DataProviderContext from "./DataProviderContext/DataProviderContext";
-import { DataContaxt } from "./DataProviderContext/DataProviderContext";
-import { DataProvideBYHook } from "./DataProviderContext/DataProviderContext";
-import Store from "../app/Redux/Store"; // Update the path as needed
+
+import Store from "../app/Redux/Store"; // Update the path s needed
 import {
   ApolloClient,
   InMemoryCache,
