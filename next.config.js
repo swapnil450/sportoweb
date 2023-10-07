@@ -24,7 +24,7 @@ const nextConfig = {
     allowedExternalDomains: ["", "another-origin.com"],
   },
   env: {
-    GRAPHQL_SERVER: "http://localhost:8000/graph",
+    GRAPHQL_SERVER: "https://sbtserver.vercel.app/graph",
     SHIPPING: "100",
     Discount: "10"
   },
