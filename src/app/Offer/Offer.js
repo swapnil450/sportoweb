@@ -1,5 +1,7 @@
 import React from "react";
 import DataOffer from "./Data";
+import Image from "next/image";
+
 export default function Offer() {
   return (
     <>
@@ -9,22 +11,18 @@ export default function Offer() {
             {DataOffer?.map((i) => {
               return (
                 <>
-                  <div class="flex flex-col md:flex-row items-strech justify-between rounded-lg bg-gray-50  py-6 px-6 md:py-12 lg:px-12 md:w-8/12 lg:w-7/12 xl:w-8/12 2xl:w-9/12">
-                    <div class="flex flex-col justify-center md:w-1/2">
-                      <h1 class="text-3xl lg:text-3xl font-semibold text-gray-800 ">
+                  <div class="flex flex-col gap-3  items-strech justify-between rounded-lg border hover:bg-gray-50 cursor-pointer rouned-lg py-6 px-6 md:py-12 lg:px-12 md:w-8/12 lg:w-7/12 xl:w-8/12 2xl:w-9/12">
+                    <div class="flex flex-row justify-center gap-2">
+                      <h1 class="text-2xl lg:text-2xl font-semibold text-teal-500 ">
                         {i.title}
                       </h1>
-                      <p class="text-base lg:text-xl text-gray-800 mt-2">
+                      <p class="text-base lg:text-sm inline-flex flex-row gap-1 text-gray-500 mt-2">
                         {i?.sub}
                         <span class="font-bold">{i.discount}</span>
                       </p>
                     </div>
-                    <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end">
-                      <img
-                        src="https://i.ibb.co/J2BtZdg/Rectangle-56-1.png"
-                        alt=""
-                        class=""
-                      />
+                    <div class="w-auto mt-8 md:mt-0 flex justify-center md:justify-end">
+                      <Image unoptimized src={`${i?.imageURL}`} width={0} className="w-full" height={0} />
                     </div>
                   </div>
                 </>

@@ -249,7 +249,7 @@ export default function SignIn({ status, setStatus, setStatusca }) {
 
                     <div class="flex flex-col space-y-5">
                       <span class="flex items-center justify-center space-x-2">
-                        <span onClick={() => setStatusca(true)} class="font-normal cursor-pointer underline text-sm hover:text-teal-400 text-gray-400">
+                        <span onClick={HandleShiftSignin} class="font-normal cursor-pointer underline text-sm hover:text-teal-400 text-gray-400">
                           {" "}
                           Create Account{" "}
                         </span>
