@@ -171,7 +171,7 @@ export default function SignUp({ setStatus, statusca, setStatusca }) {
         onClick={() => setStatusca(true)}
         className="bg-[#00DDB8] text-white font-semibold text-xs cursor-pointer rounded-lg p-2 "
       >
-        Sign Up
+        Signup
       </button>
 
       <Modal isOpen={statusca} onOpenChange={onOpenChange} placement="center">
