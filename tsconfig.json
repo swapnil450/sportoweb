@@ -23,6 +23,27 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/CompUtils/Header/Header.jsx",
+    "src/app/PopularProd/PopularProd.jsx",
+    "src/app/ProductInfo/Comp/ProductDes.jsx",
+    "src/app/ProductInfo/Comp/ImageSlide.jsx",
+    "src/app/ProductInfo/MainDetails.jsx",
+    "src/app/PopularProd/Comp/PopularProdList.jsx",
+    "src/app/ProductInfo/Comp/MoreInfoComp/Review.jsx",
+    "src/app/ProductInfo/Comp/MoreInfoComp/Doses.jsx",
+    "src/app/ProductInfo/Comp/MoreInfoComp/Description.jsx",
+    "src/app/ProductInfo/Comp/MoreInfoComp/AdditionalInfo.jsx",
+    "src/app/ProductInfo/Comp/MoreInfo.jsx",
+    "src/app/page.js",
+    "src/app/layout.jsx",
+    "src/app/ProductInfo/[product]/page.jsx",
+    "src/app/ProductInfo/Comp/RelatedProduct/Related.js",
+    "src/app/CompUtils/SearchPro/HandleSearch.jsx"
+, "src/app/CartOperation/SubComp/AdressInput.jsx", "src/app/CartOperation/SubComp/Address.jsx", "src/app/CartOperation/CartMain.jsx"  ],
   "exclude": ["node_modules"]
 }
