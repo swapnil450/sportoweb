@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import { Rate } from "rsuite";
+
 import { Spinner } from "@nextui-org/react";
-import fer from "../../../PopularProd/asset/fetr.jpeg";
+
 import { useRouter } from "next/navigation";
 import { DataProvideBYHook } from "@/app/DataProviderContext/DataProviderContext";
 export default function Related({ type }) {
@@ -32,7 +32,7 @@ export default function Related({ type }) {
                     <div class="relative pt-10 px-10 flex items-center justify-center">
                       <div
                         class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
-                        // style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;"
+                      // style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;"
                       ></div>
                       <Image
                         className="relative w-40"

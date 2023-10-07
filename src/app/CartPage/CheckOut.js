@@ -17,7 +17,7 @@ import {
 import { useRouter } from "next/navigation";
 import { DataProvideBYHook } from "../DataProviderContext/DataProviderContext";
 import SignIn from "../Auth/SignIn";
-import useOrderPlaced from "./hooks/OrderPlaceHook";
+import OrderPlaced from "./hooks/OrderPlaceHook";
 import SuccessOrder from "./Comp/SuccessOrder";
 export const CustomRadio = (props) => {
   const { children, ...otherProps } = props;
@@ -201,7 +201,7 @@ export default function CheckOut({
                   color="#00DDB8"
                   className="bg-teal-500 text-white font-bold"
                   onPress={() =>
-                    useOrderPlaced(orderfinal, setOrderLoad, setStatus, onClose)
+                    OrderPlaced(orderfinal, setOrderLoad, setStatus, onClose)
                   }
                 >
                   Confirm Order

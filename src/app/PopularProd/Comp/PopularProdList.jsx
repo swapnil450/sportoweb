@@ -1,11 +1,10 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import fer from "../asset/fetr.jpeg";
-import { Rate } from "rsuite";
+
 import { useRouter } from "next/navigation";
 import "rsuite/dist/rsuite-no-reset.min.css";
-import Link from "next/link";
+
 import { Button, Spinner } from "@nextui-org/react";
 import { DataProvideBYHook } from "@/app/DataProviderContext/DataProviderContext";
 export default function PopularProdList({ selType }) {
