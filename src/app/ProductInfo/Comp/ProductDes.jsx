@@ -1,10 +1,10 @@
 import { AddToCart } from "@/app/Redux/Slice/CartSlice";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import SignIn from "@/app/Auth/SignIn";
+
 export default function ProductDes({ des }) {
   const oldCartData = useSelector((state) => {
     return state.cart;
@@ -79,12 +79,13 @@ export default function ProductDes({ des }) {
     }
   };
 
-  if (qnt === 0) {
-    setQnt(1);
-  }
-  if (qnt === Number(des?.stock)) {
-    setQnt(1);
-  }
+  useEffect(() => {
+    if (qnt === 0) {
+      setQnt(1);
+    } else if (qnt === Number(des?.stock)) {
+      setQnt(1);
+    }
+  }, [des?.stock, qnt]);
 
   return (
     <div className="flex justify-start items-start borde border-gray-400 rounded-lg lg:w-[600px] w-[370px] p-3 ">
@@ -92,15 +93,15 @@ export default function ProductDes({ des }) {
         <p className="text-xs font-bold text-black bg-yellow-200 p-2 rounded-lg">
           Sale {des?.off}%
         </p>
-        <h1 className="text-2xl  font-bold text-black">{des.product_name}</h1>
-        {/* <Rate size="xs" readOnly defaultValue={3.5} allowHalf></Rate> */}
+        <h1 className="text-2xl  font-bold text-black">{des?.product_name}</h1>
+
         <p className="text-sm font-semibold text-gray-600">Review(34⭐)</p>
         <div className="flex gap-2 flex-row justify-center items-center">
           <p className="text-3xl font-bold text-teal-500">₹{des?.price}</p>
           <div className="flex flex-col">
             <p className="text-xs font-bold text-yellow-500">{des?.off}%off </p>
             <p className="line-through text-xs font-bold text-gray-400">
-              ₹{Number(des.price) + 10 * Number(des?.off)}
+              ₹{Number(des?.price) + 10 * Number(des?.off)}
             </p>
           </div>
         </div>
@@ -124,7 +125,7 @@ export default function ProductDes({ des }) {
                   }
                 >
                   {`${key}/${des?.Quantity[index]}${
-                    des.form === "solid" ? "kg" : "Ltr"
+                    des?.form === "solid" ? "kg" : "Ltr"
                   }`}
                   {}
                 </p>

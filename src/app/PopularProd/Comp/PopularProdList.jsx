@@ -5,11 +5,11 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import "rsuite/dist/rsuite-no-reset.min.css";
 
-import { Button, Spinner } from "@nextui-org/react";
+import { Button, Spinner, Card, CardFooter, CardBody } from "@nextui-org/react";
 import { DataProvideBYHook } from "@/app/DataProviderContext/DataProviderContext";
 export default function PopularProdList({ selType }) {
   const { proData, loading } = DataProvideBYHook();
-  const [load, setLoad] = React.useState(10);
+  const [load, setLoad] = React.useState(8);
   const Router = useRouter();
 
   const FilteredproductData =
@@ -23,22 +23,18 @@ export default function PopularProdList({ selType }) {
         <Spinner />
       ) : (
         <>
-          <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-[20px]  p- gap-4 lg:gap-10">
-            {FilteredproductData.slice(0, load)?.map((item) => {
+          <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-[20px]  p- gap-4 lg:gap-5">
+            {FilteredproductData.slice(0, load)?.map((item, index) => {
               return (
                 <>
                   <div
-                    key={item?._id}
+                    key={index}
                     onClick={() => Router.push(`/ProductInfo/${item._id}`)}
-                    class="flex-shrink-0 m-2 cursor-pointer relative border  overflow-hidden  rounded-lg max-w-sm shadow-sm hover:shadow-lg"
+                    class="flex-shrink-0 flex flex-col justify-center items-center  cursor-pointer relative border  overflow-hidden  rounded-lg max-w-sm shadow-sm hover:shadow-lg"
                   >
-                    <div class="relative pt-10 px-10 flex items-center justify-center">
-                      <div
-                        class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
-                        // style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;"
-                      ></div>
+                    <div class="relative p-3 flex items-center justify-center">
                       <Image
-                        class="relative w-40"
+                        class="relative w-32"
                         src={item?.image[0]}
                         unoptimized
                         width={0}
@@ -50,7 +46,7 @@ export default function PopularProdList({ selType }) {
                       <span class="block text-gray-500 opacity-75 -mb-1">
                         {item.type}
                       </span>
-                      <div class="flex justify-between">
+                      <div class="flex justify-between gap-3">
                         <span class="block font-semibold text-gray-800 text-xl">
                           {item.product_name}
                         </span>

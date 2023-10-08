@@ -24,6 +24,7 @@ export default function DataProviderContext({ children }) {
         image
         main_ingredient
         praman
+        off
         price
         pricelist
         product_name

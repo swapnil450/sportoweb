@@ -13,7 +13,7 @@ export default function MainDetails() {
   const { proData, loading } = DataProvideBYHook();
 
   const FilteredproductData = proData?.filter(
-    (i) => i._id === String(param.product)
+    (i) => i?._id === String(param?.product)
   );
   if (loading) {
     return <LoaderSuspense />;
@@ -26,7 +26,7 @@ export default function MainDetails() {
         return (
           <>
             <div
-              key={i._id}
+              key={i?._id}
               className="flex  lg:flex-row flex-col lg:gap-10 justify-center items-center"
             >
               <div className="flex justify-center items-center">
