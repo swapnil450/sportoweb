@@ -13,7 +13,7 @@ export default function Categoriespro() {
   return (
     <>
       <div className="flex justify-center mt-[20px] items-center p-5">
-        <div className="flex gap-10 flex-wrap justify-center items-center">
+        <div className="flex gap-16 flex-wrap justify-center items-center">
           {img.map((i) => {
             return (
               <>

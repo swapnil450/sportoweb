@@ -1,17 +1,29 @@
 "use client";
 import React from "react";
 import PopularProdList from "./Comp/PopularProdList";
+import { useDispatch } from "react-redux";
+import { ProTypeRed } from "../Redux/Slice/ProductTypeSlice";
+import { setLastIndex } from "../Redux/Slice/LoadMore";
 export default function PopularProd() {
+  const dispatch = useDispatch();
   const img = [
     { value: "", name: "All" },
     { value: "soil", name: "Soil Health" },
     { value: "plant", name: "Plant Growth" },
     { value: "insectiside", name: "Insectiside" },
-    { value: "pesticide", name: "Pestisides" },
+    { value: "herbicide", name: "Herbicide" },
+    { value: "fungicide", name: "Fungicide" },
+    { value: "organic", name: "Organic" },
     { value: "fertilizer", name: "Fertilizers" },
     { value: "cow", name: "Cow Feeds" },
   ];
   const [selType, setSelType] = React.useState("");
+  const SelectType = (selType) => {
+    dispatch(ProTypeRed(selType));
+    dispatch(setLastIndex(8));
+    setSelType(selType);
+  };
+
   return (
     <>
       <main className="flex flex-col bg-white justify-center  items-center  gap-7  ">
@@ -23,7 +35,7 @@ export default function PopularProd() {
                 <>
                   <p
                     key={i}
-                    onClick={() => setSelType(i.value)}
+                    onClick={() => SelectType(i.value)}
                     className={
                       selType === i.value
                         ? `font-semibold text-xs lg:text-sm  bg-teal-500 rounded-lg p-2 text-white  hover:-translate-y-1 cursor-pointer`

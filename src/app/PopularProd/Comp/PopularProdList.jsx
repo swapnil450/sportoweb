@@ -4,14 +4,27 @@ import Image from "next/image";
 
 import { useRouter } from "next/navigation";
 import "rsuite/dist/rsuite-no-reset.min.css";
-
-import { Button, Spinner, Card, CardFooter, CardBody } from "@nextui-org/react";
+import { useDispatch } from "react-redux";
+import {
+  Button,
+  Spinner,
+  Card,
+  CardFooter,
+  CardBody,
+  Skeleton,
+} from "@nextui-org/react";
 import { DataProvideBYHook } from "@/app/DataProviderContext/DataProviderContext";
+import { setLastIndex } from "../../Redux/Slice/LoadMore";
+import SkeletonPro from "../../Utils/Loader/SkeletonPro";
 export default function PopularProdList({ selType }) {
-  const { proData, loading } = DataProvideBYHook();
+  const dispatch = useDispatch();
+  const { proData, loading, DataLength } = DataProvideBYHook();
   const [load, setLoad] = React.useState(8);
   const Router = useRouter();
-
+  const GetDataOnLoad = (load) => {
+    dispatch(setLastIndex(load));
+    setLoad(load);
+  };
   const FilteredproductData =
     selType === ""
       ? proData
@@ -20,50 +33,47 @@ export default function PopularProdList({ selType }) {
   return (
     <>
       {loading || !FilteredproductData ? (
-        <Spinner />
+        <SkeletonPro />
       ) : (
         <>
-          <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-[20px]  p- gap-4 lg:gap-5">
-            {FilteredproductData.slice(0, load)?.map((item, index) => {
+          <div className="grid lg:grid-cols-4 grid-cols-2 md:grid-cols-3 mt-[30px]   gap-3 lg:gap-5">
+            {FilteredproductData?.map((item, index) => {
               return (
                 <>
                   <div
                     key={index}
                     onClick={() => Router.push(`/ProductInfo/${item._id}`)}
-                    class="flex-shrink-0 flex flex-col justify-center items-center  cursor-pointer relative border  overflow-hidden  rounded-lg max-w-sm shadow-sm hover:shadow-lg"
+                    className="lg:w-[250px] md:w-[200px] w-[170px] flex flex-col gap-3 border border-gray-200 shadow-sm rounded-lg hover:shadow-lg hover:border-teal-300 cursor-pointer  p-4"
                   >
-                    <div class="relative p-3 flex items-center justify-center">
+                    <div className="lg:h-40 h-32 rounded-lg ">
                       <Image
-                        class="relative w-32"
+                        className="w-full h-full object-cover"
                         src={item?.image[0]}
-                        unoptimized
                         width={0}
+                        style={{ objectFit: "contain" }}
                         height={0}
+                        unoptimized
                         alt="dfvdf"
                       />
                     </div>
-                    <div class="relative text-white px-6 pb-6 mt-6">
-                      <span class="block text-gray-500 opacity-75 -mb-1">
-                        {item.type}
-                      </span>
-                      <div class="flex justify-between gap-3">
-                        <span class="block font-semibold text-gray-800 text-xl">
-                          {item.product_name}
-                        </span>
-                        <span class=" bg-gray-50 rounded-full text-teal-500 text-xs font-bold px-3 py-2 leading-none flex items-center">
+                    <div className="flex flex-wrap justify-start items-start ">
+                      <p class=" font-semibold inline-flex flex-col gap-1 text-gray-800 lg:text-sm text-[10px]">
+                        {item.product_name}
+                        <span className="  text-teal-500 lg:text-xl font-bold text-sm  leading-none flex items-center">
+                          {" "}
                           ₹{item.price}
                         </span>
-                      </div>
+                      </p>
                     </div>
                   </div>
                 </>
               );
             })}
           </div>
-          {proData?.length < load ? null : (
+          {DataLength < load ? null : (
             <Button
-              onClick={() => setLoad(load + 10)}
-              className="bg-[#3BB77E] text-white font-bold"
+              onClick={() => GetDataOnLoad(load + 8, DataLength)}
+              className="bg-teal-500 text-white font-bold"
             >
               Load More
             </Button>

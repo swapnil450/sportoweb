@@ -3,7 +3,6 @@ import { DataProvideBYHook } from "@/app/DataProviderContext/DataProviderContext
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 export default function ListSearchProduct({ search, onClose }) {
-
   const { proData, flag } = DataProvideBYHook();
   const Router = useRouter();
   const getFiteredData = (search) => {
@@ -42,6 +41,7 @@ export default function ListSearchProduct({ search, onClose }) {
                 <Image
                   lazyBoundary={true}
                   alt="category"
+                  style={{ objectFit: "contain" }}
                   src={item?.image[0]}
                   width={50}
                   height={0}

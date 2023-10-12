@@ -11,8 +11,8 @@ export default function Related({ type }) {
   const FilteredproductData = proData?.filter((i) => i?.type === String(type));
   return (
     <>
-      <main className="flex flex-col lg:mt-[50px] justify-center items-center lg:mx-10 mx-2">
-        <h1 className="text-start font-bold text-2xl mb-5">
+      <main className="flex flex-col lg:mt-[50px] justify-center items-center  ">
+        <h1 className="text-start font-bold text-2xl mb-10">
           {" "}
           Related Products
         </h1>
@@ -20,40 +20,37 @@ export default function Related({ type }) {
         {flag === true ? (
           <Spinner />
         ) : (
-          <div className="grid lg:grid-cols-4 grid-cols-1 sm:grid-cols-2  gap-2">
+          <div className="grid lg:grid-cols-4 grid-cols-2 sm:grid-cols-3 gap-2 lg:gap-7">
             {FilteredproductData?.slice(0, 8)?.map((item) => {
               return (
                 <>
                   <div
-                    key={item?._id}
+                    key={item._id}
                     onClick={() => Router.push(`/ProductInfo/${item._id}`)}
-                    class="flex-shrink-0 flex flex-col justify-center items-center cursor-pointer relative border  overflow-hidden bg-gray-0 rounded-lg max-w-sm shadow-sm hover:shadow-lg"
+                    className="lg:w-[250px] w-[150px] flex flex-col gap-3 border border-gray-100 shadow-sm rounded-lg hover:shadow-lg hover:border-teal-300 cursor-pointer  p-4"
                   >
-                    <div class="relative p-3 flex items-center justify-center">
-
+                    <div className="lg:h-40 h-32 rounded-lg ">
                       <Image
-                        className="relative w-32"
+                        className="w-full h-full object-cover"
                         src={item?.image[0]}
-                        width={40}
+                        width={0}
+                        style={{ objectFit: "contain" }}
                         height={0}
                         unoptimized
-                        alt="zcvcv"
+                        alt="dfvdf"
                       />
                     </div>
-                    <div class="relative text-white px-6 pb-6 mt-6">
-                      <span class="block text-gray-500 opacity-75 -mb-1">
-                        {item.type}
-                      </span>
-                      <div class="flex justify-between">
-                        <span class="block font-semibold text-gray-800 text-xl">
-                          {item.product_name}
-                        </span>
-                        <span class=" bg-gray-50 rounded-full text-teal-500 text-xs font-bold px-3 py-2 leading-none flex items-center">
+                    <div className="flex flex-wrap justify-start items-start ">
+                      <p class=" font-semibold inline-flex flex-col gap-1 text-gray-800 lg:text-sm text-[10px]">
+                        {item.product_name}
+                        <span className="  text-teal-500 lg:text-xl font-bold text-sm  leading-none flex items-center">
+                          {" "}
                           ₹{item.price}
                         </span>
-                      </div>
+                      </p>
                     </div>
                   </div>
+
                 </>
               );
             })}
