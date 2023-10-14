@@ -106,11 +106,11 @@ export default function ProductDes({ des }) {
           </div>
         </div>
         <p className="text-black text-sm">{des?.description}</p>
-        <div className="flex  gap-4 flex-row justify-center items-center">
+        <div className="flex  gap-2 flex-row justify-center items-center">
           <p className="text-black font-bold lg:text-sm text-xs">
             {`Price/Weight:`}{" "}
           </p>
-          <div className="flex gap-4 flex-row justify-center items-center ">
+          <div className="flex gap-4 flex-wrap justify-center items-center ">
             {des?.pricelist?.map((key, index) => {
               return (
                 <p
@@ -120,20 +120,18 @@ export default function ProductDes({ des }) {
                   }
                   className={
                     key === wght?.price
-                      ? `text-white font-bold bg-teal-500 lg:p-2 p-1.5 rounded-lg lg:text-sm text-xs cursor-pointer`
-                      : `cursor-pointer hover:shadow-lg  bg-gray-100 lg:p-2 p-1.5 rounded-lg text-xs lg:text-sm`
+                      ? `text-white font-bold bg-teal-500 lg:p-2 p-1.5 rounded-lg lg:text-xs text-[10px] cursor-pointer`
+                      : `cursor-pointer hover:shadow-lg  bg-gray-100 lg:p-2 p-1.5 rounded-lg text-[10px] lg:text-xs`
                   }
                 >
-                  {`${key}/${des?.Quantity[index]}${
-                    des?.form === "solid" ? "kg" : "Ltr"
-                  }`}
+                  {`${key}/${des?.Quantity[index]}`}
                   {}
                 </p>
               );
             })}
           </div>
         </div>
-        <div className="flex justify-center items-center flex-row gap-4">
+        {/* <div className="flex justify-center items-center flex-row gap-4">
           <p
             onClick={() => setQnt(qnt - 1)}
             className="flex hover:shadow-lg flex-row  justify-center font-bold hover:-translate-y-1 items-center   text-sm text-black hover:text-white hover:bg-teal-500   cursor-pointer bg-gray-200 p-2 rounded-lg"
@@ -149,11 +147,11 @@ export default function ProductDes({ des }) {
           >
             +
           </p>
-        </div>
+        </div> */}
         <div className="flex gap-5 mt-3 flex-row">
-          <p className="flex hover:shadow-lg flex-row  justify-center font-bold hover:-translate-y-1 items-center bg-green-100  text-sm text-teal-500 hover:text-white hover:bg-teal-500  rounded-[7px]bg-green-100 p-2 rounded-lg cursor-pointer ">
+          {/* <p className="flex hover:shadow-lg flex-row  justify-center font-bold hover:-translate-y-1 items-center bg-green-100  text-sm text-teal-500 hover:text-white hover:bg-teal-500  rounded-[7px]bg-green-100 p-2 rounded-lg cursor-pointer ">
             ❤️
-          </p>
+          </p> */}
           <div
             onClick={() =>
               AddtoCart(
@@ -168,7 +166,7 @@ export default function ProductDes({ des }) {
                 oldCartData
               )
             }
-            className="flex hover:shadow-lg flex-row cursor-pointer lg:w-[300px] w-[200px] justify-center font-bold hover:-translate-y-1 items-center  p-2 text-[14px] text-white bg-teal-500 rounded-[7px]"
+            className="flex hover:shadow-lg flex-row cursor-pointer lg:w-[300px] w-[300px] justify-center font-bold hover:-translate-y-1 items-center  p-2 text-[14px] text-white bg-teal-500 rounded-[7px]"
           >
             Order Now
           </div>

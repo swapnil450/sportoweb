@@ -54,7 +54,7 @@ export default function MainCartPage() {
     time: String(
       new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
     ),
-    totalAmount: total + Number(process.env.SHIPPING),
+    totalAmount: total,
     active: true,
     process: false,
     delivered: false,

@@ -96,15 +96,12 @@ export default function CartedProduct({ DataCart }) {
                 {/* price and offer */}
 
                 <div className="flex lg:flex-row flex-row w-full lg:gap-1 gap-1 justify-start lg:items-start">
-                  <p className="text-xs inline-flex bg-gray-50 p-1 rounded-lg text-black font-semibold">{`Total : ₹${
-                    Number(i?.selPrice) * Number(i?.qnt)
-                  }`}</p>
-                  <p className="text-xs inline-flex bg-gray-50 p-1 rounded-lg text-gray-600 font-semibold">{`Qnt : ${
-                    i?.selWght
-                  }${i.form === `solid` ? `kg` : `Ltr`}`}</p>
-                  <p className="text-xs inline-flex bg-gray-50 p-1 rounded-lg text-gray-600 font-semibold">{`${"No : "}${
-                    i?.qnt
-                  }`}</p>
+                  <p className="text-xs inline-flex bg-gray-50 p-1 rounded-lg text-black font-semibold">{`Total : ₹${Number(i?.selPrice) * Number(i?.qnt)
+                    }`}</p>
+                  <p className="text-xs inline-flex bg-gray-50 p-1 rounded-lg text-gray-600 font-semibold">{`Qnt : ${i?.selWght
+                    }`}</p>
+                  <p className="text-xs inline-flex bg-gray-50 p-1 rounded-lg text-gray-600 font-semibold">{`${"No : "}${i?.qnt
+                    }`}</p>
                 </div>
                 {/* price and action */}
                 <div className="flex flex-row gap-10  w-full justify-center items-center">

@@ -25,7 +25,7 @@ const nextConfig = {
   },
   env: {
     GRAPHQL_SERVER: "https://sbtserver.vercel.app/graph",
-    SHIPPING: "100",
+    SHIPPING: "Pay To Delivery Partner",
     Discount: "10"
   },
   headers: [

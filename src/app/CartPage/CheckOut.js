@@ -136,7 +136,7 @@ export default function CheckOut({
                         Shipping
                       </label>
                       <select class="block p-2 text-gray-600 w-full text-sm">
-                        <option>Standard shipping ₹{Number(process.env.SHIPPING)}</option>
+                        <option>Standard shipping {String(process.env.SHIPPING)}</option>
                       </select>
                     </div>
                     {/* <div class="py-10">
@@ -159,7 +159,7 @@ export default function CheckOut({
                     <div class="border-t mt-8">
                       <div class="flex font-semibold justify-between py-6 text-sm uppercase">
                         <span>Total cost</span>
-                        <span>₹{total + Number(process.env.SHIPPING)}</span>
+                        <span>₹{total}</span>
                       </div>
                     </div>
                   </div>

@@ -28,7 +28,10 @@ export default function PopularProd() {
     <>
       <main className="flex flex-col bg-white justify-center  items-center  gap-7  ">
         <h1 className="text- font-bold text-xl"> Popular Products</h1>
-        <div className="flex lg:flex-row flex-col gap-[15px]  justify-center items-center ">
+        <div
+          id="prod"
+          className="flex lg:flex-row flex-col gap-[15px]  justify-center items-center "
+        >
           <div className="flex mt-3 flex-wrap gap-4 lg:gap-10 justify-center items-center">
             {img?.map((i) => {
               return (

@@ -6,7 +6,7 @@ interface Dataspeci {
 
 export const DataSpec: Dataspeci[] = [
   {
-    name: "Free Delivary",
+    name: "24/7 Delivary",
     icon: "https://img.icons8.com/ios/70/12B886/in-transit--v1.png",
     des: "24/7 Services",
   },

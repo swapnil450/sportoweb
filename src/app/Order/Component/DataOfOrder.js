@@ -41,13 +41,15 @@ export default function DataOfOrder() {
   const OrderData = data?.getOrderByEmailId;
   return (
     <>
-      <div className="flex flex-col justify-center items-center ">
-        <ListOfOrder
-          OrderData={OrderData}
-          refetch={refetch}
-          loading={loading}
-        />
-      </div>
+      {
+        OrderData?.length === 0 ? <p className="text-sm font-semibold ">No OrderFound Yet !</p> : <div className="flex flex-col justify-center items-center ">
+          <ListOfOrder
+            OrderData={OrderData}
+            refetch={refetch}
+            loading={loading}
+          />
+        </div>
+      }
     </>
   );
 }
