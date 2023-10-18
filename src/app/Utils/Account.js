@@ -27,7 +27,7 @@ export default function Account() {
             isBordered
             as="button"
             className="w-6 h-6 text-tiny"
-            name="cs"
+            name={user?.name}
             size="xs"
           />
         </DropdownTrigger>

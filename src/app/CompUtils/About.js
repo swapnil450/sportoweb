@@ -51,9 +51,9 @@ export default function About() {
                   About Us
                 </h2>
                 <article className="text-sm text-black">
-                  <p>Welcome to SoilBooster.in!</p>
+                  <p>Welcome to soilboostertechnology!</p>
                   <p>
-                    At SoilBooster, we are passionate about helping plants
+                    At soilboostertechnology, we are passionate about helping plants
                     thrive and supporting farmers in their quest for healthy and
                     abundant crops. Our e-commerce website offers a wide range
                     of premium-quality fertilizers, plant medicines, pesticides,
@@ -105,7 +105,7 @@ export default function About() {
                     sustainable agricultural practices.
                   </p>
                   <h3 className="text-xl font-semibold mt-4">
-                    Why Choose SoilBooster.in:
+                    Why Choose soilboostertechnology:
                   </h3>
                   <ol className="list-decimal list-inside pl-4">
                     <li>
@@ -139,7 +139,7 @@ export default function About() {
                     Maharashtra, India, and look forward to serving you.
                   </p>
                   <p>
-                    At SoilBooster.in, we are committed to empowering farmers,
+                    At soilboostertechnology.com, we are committed to empowering farmers,
                     nurturing plants, and promoting sustainable agriculture.
                     Join us on this journey to create healthier and more
                     productive farms.

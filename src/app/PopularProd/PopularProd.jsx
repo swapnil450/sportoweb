@@ -8,13 +8,10 @@ export default function PopularProd() {
   const dispatch = useDispatch();
   const img = [
     { value: "", name: "All" },
-    { value: "soil", name: "Soil Health" },
-    { value: "plant", name: "Plant Growth" },
+    { value: "organic", name: "Organic" },
     { value: "insectiside", name: "Insectiside" },
     { value: "herbicide", name: "Herbicide" },
     { value: "fungicide", name: "Fungicide" },
-    { value: "organic", name: "Organic" },
-    { value: "fertilizer", name: "Fertilizers" },
     { value: "cow", name: "Cow Feeds" },
   ];
   const [selType, setSelType] = React.useState("");

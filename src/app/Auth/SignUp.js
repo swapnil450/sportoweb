@@ -12,6 +12,7 @@ import {
   Input,
   Link,
 } from "@nextui-org/react";
+import DOMPurify from "dompurify";
 
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
@@ -42,6 +43,7 @@ export default function SignUp({ setStatus, statusca, setStatusca }) {
     // Password must be at least 8 characters long
     return password.length >= 8;
   };
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setLogin((prevData) => ({
@@ -80,6 +82,11 @@ export default function SignUp({ setStatus, statusca, setStatusca }) {
       return;
     }
     setLoad(true);
+
+    const email = DOMPurify.sanitize(login?.email)
+    const mobile = DOMPurify.sanitize(login?.mobile)
+    const name = DOMPurify.sanitize(login?.name)
+    const password = DOMPurify.sanitize(login?.password)
     await axios
       .post(`${process.env.GRAPHQL_SERVER}`, {
         query: `${SIGNUP}`,
@@ -87,10 +94,10 @@ export default function SignUp({ setStatus, statusca, setStatusca }) {
           input: {
             Active: true,
             acctype: `customer`,
-            email: String(login?.email),
-            mobile: String(login?.mobile),
-            name: String(login?.name),
-            password: String(login?.password)
+            email: String(email),
+            mobile: String(mobile),
+            name: String(name),
+            password: String(password)
           },
         },
       })
@@ -196,6 +203,7 @@ export default function SignUp({ setStatus, statusca, setStatusca }) {
                         type="text"
                         id="text"
                         name="name"
+                        maxLength={40}
                         value={login.name}
                         onChange={(event) => handleInputChange(event)}
                         autofocus
@@ -212,6 +220,7 @@ export default function SignUp({ setStatus, statusca, setStatusca }) {
                       <input
                         type="email"
                         id="email"
+                        maxLength={40}
                         name="email"
                         value={login.email}
                         onChange={(event) => handleInputChange(event)}
@@ -227,9 +236,10 @@ export default function SignUp({ setStatus, statusca, setStatusca }) {
                         Mobile No
                       </label>
                       <input
-                        type="number"
+                        type="text"
                         id="mbno"
                         name="mobile"
+                        maxLength={12}
                         value={login.mobile}
                         onChange={(event) => handleInputChange(event)}
                         autofocus
@@ -254,6 +264,7 @@ export default function SignUp({ setStatus, statusca, setStatusca }) {
                       <input
                         name="password"
                         value={login.password}
+                        maxLength={20}
                         onChange={(event) => handleInputChange(event)}
                         type="password"
                         id="password"

@@ -12,6 +12,7 @@ import {
   Input,
   Link,
 } from "@nextui-org/react";
+import DOMPurify from "dompurify";
 
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
@@ -82,13 +83,16 @@ export default function SignIn({ status, setStatus, setStatusca }) {
       return;
     }
 
+    const sanitizedEmail = DOMPurify.sanitize(login.email);
+    const sanitizedPassword = DOMPurify.sanitize(login.password);
+
     await axios
       .post(`${process.env.GRAPHQL_SERVER}`, {
         query: `${SIGNIN}`,
         variables: {
           data: {
-            email: login.email,
-            password: login.password,
+            email: String(sanitizedEmail),
+            password: String(sanitizedPassword),
           },
         },
       })
@@ -168,6 +172,7 @@ export default function SignIn({ status, setStatus, setStatusca }) {
                         id="email"
                         name="email"
                         value={login.email}
+                        maxLength={50}
                         onChange={(event) => handleInputChange(event)}
                         autofocus
                         class="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
@@ -193,6 +198,7 @@ export default function SignIn({ status, setStatus, setStatusca }) {
                         value={login.password}
                         onChange={(event) => handleInputChange(event)}
                         type="password"
+                        maxLength={20}
                         id="password"
                         class="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                       />

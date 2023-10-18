@@ -49,7 +49,7 @@ export default function Refund() {
                   Refund Policy !
                 </h2>
                 <article className="text-sm text-black">
-                  <p>Welcome to SoilBooster.in!</p>
+                  <p>Welcome to soilboostertechnology.com!</p>
                   <p>currently we have not any kind of refund policy !</p>
                 </article>
               </ModalBody>

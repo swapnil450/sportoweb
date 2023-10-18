@@ -7,7 +7,7 @@ import CheckOut from "./CheckOut";
 import CartedProduct from "../Utils/CartComp/CartedProduct";
 import TotalCart from "../Utils/CartComp/TotalCart";
 import { DataProvideBYHook } from "../DataProviderContext/DataProviderContext";
-
+import DOMPurify from "dompurify";
 export default function MainCartPage() {
   const { user } = DataProvideBYHook();
 
@@ -29,7 +29,7 @@ export default function MainCartPage() {
     const value = e.target.value;
     setFormValue((prv) => ({
       ...prv,
-      [name]: value,
+      [name]: DOMPurify.sanitize(value),
     }));
   };
 

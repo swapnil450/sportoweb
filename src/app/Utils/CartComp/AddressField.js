@@ -13,6 +13,7 @@ import {
   Input,
   Link,
 } from "@nextui-org/react";
+import DOMPurify from "dompurify";
 
 export default function App({ formValue, setFormValue, handleAdrsForm }) {
   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
@@ -57,12 +58,12 @@ export default function App({ formValue, setFormValue, handleAdrsForm }) {
 
   const handleSubmit = (formValue) => {
     if (
-      !formValue?.state ||
-      !formValue?.city ||
-      !formValue?.referenceMobileNumber ||
-      !formValue?.deliveryAddress
+      !formValue?.state && state.length <= 20 ||
+      !formValue?.city && city.length <= 20 ||
+      !formValue?.referenceMobileNumber && referenceMobileNumber.length <= 12 ||
+      !formValue?.deliveryAddress && deliveryAddress.length <= 50
     ) {
-      toast.error("Address is Incomplete", {
+      toast.error("Address is Not Valide", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: true,
@@ -125,6 +126,7 @@ export default function App({ formValue, setFormValue, handleAdrsForm }) {
                   name="city"
                   placeholder="Enter your city"
                   type="text"
+                  maxLength={20}
                   value={formValue?.city}
                   onChange={handleAdrsForm}
                   variant="bordered"
@@ -133,7 +135,7 @@ export default function App({ formValue, setFormValue, handleAdrsForm }) {
                   label="Pincode No"
                   name="pincode"
                   placeholder="Enter your Pincode"
-                  min={6}
+                  maxLength={6}
                   type="number"
                   value={formValue?.pincode}
                   onChange={handleAdrsForm}
@@ -143,7 +145,7 @@ export default function App({ formValue, setFormValue, handleAdrsForm }) {
                   label="Mobile No"
                   name="referenceMobileNumber"
                   placeholder="Enter your Mobile No"
-                  min={10}
+                  maxLength={12}
                   type="number"
                   value={formValue?.referenceMobileNumber}
                   onChange={handleAdrsForm}
@@ -152,6 +154,7 @@ export default function App({ formValue, setFormValue, handleAdrsForm }) {
                 <Input
                   label="Delivery Address"
                   name="deliveryAddress"
+                  maxLength={50}
                   placeholder="Enter your Delivery Address"
                   type="textarea"
                   colspan="3"
@@ -177,9 +180,9 @@ export default function App({ formValue, setFormValue, handleAdrsForm }) {
                   Close
                 </Button>
                 {!formValue?.state ||
-                !formValue?.city ||
-                !formValue?.referenceMobileNumber ||
-                !formValue?.deliveryAddress ? (
+                  !formValue?.city ||
+                  !formValue?.referenceMobileNumber ||
+                  !formValue?.deliveryAddress ? (
                   <p></p>
                 ) : (
                   <Button
