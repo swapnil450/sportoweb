@@ -4,6 +4,7 @@ import { useState } from "react";
 import { DataProvideBYHook } from "../../DataProviderContext/DataProviderContext";
 import { gql, useQuery } from "@apollo/client";
 import ListOfOrder from "../Component/ListOfOrder";
+import NoorderFound from "../Component/NoorderFound"
 export default function DataOfOrder() {
   const { user } = DataProvideBYHook();
 
@@ -42,7 +43,7 @@ export default function DataOfOrder() {
   return (
     <>
       {
-        OrderData?.length === 0 ? <p className="text-sm font-semibold ">No OrderFound Yet !</p> : <div className="flex flex-col justify-center items-center ">
+        OrderData?.length === 0 ? <NoorderFound /> : <div className="flex flex-col justify-center items-center ">
           <ListOfOrder
             OrderData={OrderData}
             refetch={refetch}

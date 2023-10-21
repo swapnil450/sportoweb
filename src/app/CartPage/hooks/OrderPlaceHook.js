@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
-async function OrderPlaced(orderfinal, setOrderLoad, setStatus, onClose) {
+async function OrderPlaced(orderfinal, setOrderLoad, setStatus, setCheck, onClose) {
   setOrderLoad(true);
   const CREATE_ORDER = `
     mutation Mutation($orderInput: OrderInput) {
@@ -32,6 +32,7 @@ async function OrderPlaced(orderfinal, setOrderLoad, setStatus, onClose) {
     })
     .finally(() => {
       setOrderLoad(false);
+      setCheck(false)
     });
 
   return;

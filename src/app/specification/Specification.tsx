@@ -9,7 +9,9 @@ export default function Specification() {
       <div className="bg-white  lg:mt-10">
         <div className="text-center w-full mx-auto py-12 px-2 sm:px-6 lg:py-16 lg:px-8 z-20">
           <h2 className="lg:text-3xl text-2xl font-extrabold text-black  sm:text-4xl">
-            <span className="block">Want Quality Agricultural Fertilizers ?</span>
+            <span className="block">
+              Want Quality Agricultural Fertilizers ?
+            </span>
             <span className="block text-teal-500">
               Purchase Now With Best Price
             </span>

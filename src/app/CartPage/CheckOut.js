@@ -19,6 +19,7 @@ import { DataProvideBYHook } from "../DataProviderContext/DataProviderContext";
 import SignIn from "../Auth/SignIn";
 import OrderPlaced from "./hooks/OrderPlaceHook";
 import SuccessOrder from "./Comp/SuccessOrder";
+import Captcha from "../Captcha/Captcha"
 export const CustomRadio = (props) => {
   const { children, ...otherProps } = props;
 
@@ -48,6 +49,7 @@ export default function CheckOut({
   const { user } = DataProvideBYHook();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selected, setSelected] = React.useState("CASH");
+  const [check, setCheck] = React.useState(false);
 
   const [orderLoad, setOrderLoad] = React.useState(false);
   const [status, setStatus] = React.useState(false);
@@ -56,14 +58,17 @@ export default function CheckOut({
     <>
       <OnScreenLoader status={orderLoad} />
       <SuccessOrder status={status} setStatus={setStatus} />
+
       {user?.name ? (
-        <Button
-          onClick={() => HandlePlaceOrder(onOpen)}
-          size="lg"
-          className="bg-teal-500 w-full font-bold text-white"
-        >
-          PLACE ORDER
-        </Button>
+        <>
+          <Button
+            onClick={() => HandlePlaceOrder(onOpen)}
+            size="lg"
+            className="bg-teal-500 w-full font-bold text-white"
+          >
+            PLACE ORDER
+          </Button>
+        </>
       ) : (
         <>
           <div className="flex flex-row justify-center items-center gap-3">
@@ -76,8 +81,8 @@ export default function CheckOut({
       )}
 
       <Modal
-        scrollBehavior={`inside`}
-        size={`5xl`}
+        scrollBehavior={`outside`}
+        size={`xl`}
         placement="center"
         isOpen={isOpen}
         onClose={onClose}
@@ -87,7 +92,7 @@ export default function CheckOut({
             <>
               <ModalHeader className="flex flex-col gap-1"></ModalHeader>
               <ModalBody>
-                <div className="flex lg:flex-row flex-col  p-2 justify-center items-center  gap-5">
+                <div className="flex  flex-col  p-2 justify-center items-center  gap-5">
                   {/* <div className="flex  bg-white rounded-lg  shadow-sm h-[300px] lg:w-3/6 w-[310px] flex-col gap-3 justify-center p-3 items-center">
                     <p className="text-start font-normal text-black text-[16px]">
                       Total
@@ -124,7 +129,7 @@ export default function CheckOut({
                     </div>
                     <Divider className="my-1" />
                   </div> */}
-                  <div id="summary" class="lg:w-3/6 w-full ">
+                  <div id="summary" className="  w-full ">
                     <div class="flex justify-between mt-10 mb-5">
                       <span class="font-semibold text-sm uppercase">Items</span>
                       <span class="font-semibold text-sm">
@@ -163,6 +168,7 @@ export default function CheckOut({
                       </div>
                     </div>
                   </div>
+                  {DataCart?.length > 0 ? check === true ? <p></p> : <Captcha setCheck={setCheck} /> : <p></p>}
                   <div className="w-auto">
                     <RadioGroup
                       label="Payment Mode"
@@ -175,7 +181,7 @@ export default function CheckOut({
                       >
                         Cash On Delivery
                       </CustomRadio>
-                      <CustomRadio
+                      {/* <CustomRadio
                         isDisabled={true}
                         description="Pay Secure Pay Digitaly"
                         value="UPI"
@@ -188,20 +194,22 @@ export default function CheckOut({
                         value="CARD"
                       >
                         Card/Net Banking
-                      </CustomRadio>
+                      </CustomRadio> */}
                     </RadioGroup>
                   </div>
                 </div>
+
               </ModalBody>
               <ModalFooter className="mt-5">
                 <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
                 <Button
+                  isDisabled={check === true ? false : true}
                   color="#00DDB8"
                   className="bg-teal-500 text-white font-bold"
                   onPress={() =>
-                    OrderPlaced(orderfinal, setOrderLoad, setStatus, onClose)
+                    OrderPlaced(orderfinal, setOrderLoad, setStatus, setCheck, onClose)
                   }
                 >
                   Confirm Order

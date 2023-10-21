@@ -20,7 +20,7 @@ export default function Related({ type }) {
         {flag === true ? (
           <Spinner />
         ) : (
-          <div className="grid lg:grid-cols-4 grid-cols-2 sm:grid-cols-3 gap-2 lg:gap-7">
+          <div className="grid lg:grid-cols-4 grid-cols-2 sm:grid-cols-3 gap-5 lg:gap-7">
             {FilteredproductData?.slice(0, 8)?.map((item) => {
               return (
                 <>

@@ -88,7 +88,7 @@ export default function ProductDes({ des }) {
   }, [des?.stock, qnt]);
 
   return (
-    <div className="flex justify-start items-start borde border-gray-400 rounded-lg lg:w-[600px] w-[370px] p-3 ">
+    <div className="flex justify-start items-start borde border-gray-400 rounded-lg lg:w-[600px] w-[370px] lg:p-3 p-1 ">
       <div className="flex flex-col justify-start items-start borde p-2 gap-4 w-full m-2 border-gray-400 rounded-lg">
         <p className="text-xs font-bold text-black bg-yellow-200 p-2 rounded-lg">
           Sale {des?.off}%

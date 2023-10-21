@@ -5,7 +5,7 @@ import Order from "../../Utils/Order";
 import Cart from "../../Utils/Cart.js";
 import Account from "../../Utils/Account";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
 import HandleSearch from "../SearchPro/HandleSearch";
 import SignIn from "../../Auth/SignIn";
 import SignUp from "../../Auth/SignUp";
@@ -16,12 +16,16 @@ export default function Navbarcom() {
   const [status, setStatus] = React.useState(false);
   const [statusca, setStatusca] = React.useState(false);
   const { user } = DataProvideBYHook();
+  const router = useRouter();
   return (
     <>
       <Navbar suppressHydrationWarning={true} isBordered>
         <NavbarContent justify="start">
           <NavbarBrand className="mr-4">
-            <div className="flex flex-row gap-2 justify-center items-center">
+            <div
+              onClick={() => router.push("/")}
+              className="flex flex-row gap-2 cursor-pointer justify-center items-center"
+            >
               <Image width={50} alt="h" height={50} src="/sbt.png" />
               <p className="text-black inline-flex flex-col  font-bold lg:text-sm text-xs">
                 Soil Booster
