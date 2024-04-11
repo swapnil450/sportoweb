@@ -48,7 +48,7 @@ export default function PopularProdList({ selType }) {
                     <div className="lg:h-40 h-32 rounded-lg ">
                       <Image
                         className="w-full h-full object-cover"
-                        src={`https://www.sportsuncle.com/image/cache/catalog/images/ss/smacker-extreme-500x500.jpg`}
+                        src={item?.image[0]}
                         width={0}
                         style={{ objectFit: "contain" }}
                         height={0}
