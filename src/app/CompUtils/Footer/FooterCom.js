@@ -28,32 +28,32 @@ export default function FooterCom() {
               title="Company"
               className="inline-flex items-center"
             >
-              <Image src={logo} alt="f" width={50} height={0} />
+              {/* <Image src={logo} alt="f" width={50} height={0} /> */}
               <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
                 <p className="lg:text-2xl text-xs flex lg:flex-row sm:flex-row text-black flex-col font-bold">
-                  Smart Soil Booster Technologies.
+                  Sporto
                 </p>
               </span>
             </Link>
           </div>
 
           <div className=" max-w-full flex lg:flex-row flex-col justify-center items-center gap-3">
-            <p className="text-gray-100">Smart Soil Booster Technology</p>
-            <p className="text-gray-100">soilbooster@717gmail.com</p>
-            <p className="text-gray-100">Nashik, 422103</p>
-            <p className="text-gray-100">Nashik, Maharastra,India</p>
+            <p className="text-gray-100">Sporto</p>
+            <p className="text-gray-100">sporto@7792gmail.com</p>
+            <p className="text-gray-100">Pune, 411030</p>
+            <p className="text-gray-100">Pune, Maharastra,India</p>
           </div>
           <div className="flex flex-row gap-7 justify-center items-center">
-            <div className="grid grid-cols-2 gap-3">
+            {/* <div className="grid grid-cols-2 gap-3">
               <About />
               <ContactUs />
               <Privacy />
               <Refund />
-            </div>
+            </div> */}
           </div>
           <p className="text-center text-white">
             {" "}
-            +91-9822688926/+91-9730866263{" "}
+            +91-9156047792/+91-7387427755{" "}
           </p>
           <div className="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
             <div className="flex items-center bg-gray-100 justify-center gap-5 rounded-lg p-3 mt-4 space-x-4 sm:mt-0">
@@ -66,7 +66,7 @@ export default function FooterCom() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/soil_booster_technology/"
+                href="https://www.instagram.com/raj_wakarekar"
                 className="transition-colors duration-300 text-pink-500 hover:text-red-700"
               >
                 <svg viewBox="0 0 30 30" fill="currentColor" className="h-6">
@@ -84,7 +84,7 @@ export default function FooterCom() {
               </a>
 
               <a
-                href="https://www.youtube.com/@smartsoilboostertechnology6089/featured"
+                href="https://www.youtube.com/watch?v=eQbRWBlAV5I"
                 className="transition-colors duration-300 text-deep-purple-100 hover:text-teal-accent-400"
               >
                 <svg

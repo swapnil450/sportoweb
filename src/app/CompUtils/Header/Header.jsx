@@ -26,10 +26,9 @@ export default function Navbarcom() {
               onClick={() => router.push("/")}
               className="flex flex-row gap-2 cursor-pointer justify-center items-center"
             >
-              <Image width={50} alt="h" height={50} src="/sbt.png" />
+              {/* <Image width={50} alt="h" height={50} src="/sbt.png" /> */}
               <p className="text-black inline-flex flex-col  font-bold lg:text-sm text-xs">
-                Soil Booster
-                <span className="">Technology</span>
+                <span className="">SPORTO</span>
               </p>
             </div>
           </NavbarBrand>

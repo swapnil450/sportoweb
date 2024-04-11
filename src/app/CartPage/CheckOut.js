@@ -158,7 +158,7 @@ export default function CheckOut({
                         class="p-2 text-sm w-full"
                       />
                     </div> */}
-                    {/* <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">
+                    {/* <button class="bg-teal-500 hover:bg-teal-600 px-5 py-2 text-sm text-white uppercase">
                       Apply
                     </button> */}
                     <div class="border-t mt-8">

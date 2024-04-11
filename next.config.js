@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["img.icons8.com", "res.cloudinary.com"],
+    domains: ["img.icons8.com", "res.cloudinary.com", "www.sportsuncle.com"],
   },
   security: {
     // Set the content security policy to allow 'self' and the specific origins you need.
@@ -24,9 +24,9 @@ const nextConfig = {
     allowedExternalDomains: ["", "another-origin.com"],
   },
   env: {
-    GRAPHQL_SERVER: "https://sbtserver.vercel.app/graph",
+    GRAPHQL_SERVER: "http://localhost:8000/graph",
     SHIPPING: "Pay To Delivery Partner",
-    Discount: "10"
+    Discount: "10",
   },
   headers: [
     {

@@ -5,8 +5,8 @@ import Doses from "./MoreInfoComp/Doses";
 import Review from "./MoreInfoComp/Review";
 
 export default function MoreInfo({ des }) {
-  const [tab, setTab] = React.useState("Advantages");
-  const options = ["Advantages", "Ingredients", "Doses", "Review"];
+  const [tab, setTab] = React.useState("Review");
+  const options = [ "Review"];
 
   return (
     <>
@@ -31,15 +31,15 @@ export default function MoreInfo({ des }) {
           })}
         </div>
         <div className="flex justify-center mb-5 items-center">
-          {tab === "Advantages" ? (
+          {/* {tab === "Advantages" ? (
             <Description des={des} />
           ) : tab === "Ingredients" ? (
             <AdditionalInfo Ingre={des?.main_ingredient} />
           ) : tab === "Doses" ? (
             <Doses Doses={des?.praman} usecase={des?.usecase} />
-          ) : (
+          ) : ( */}
             <Review Review={des?.review} />
-          )}
+          {/* )} */}
         </div>
       </div>
     </>

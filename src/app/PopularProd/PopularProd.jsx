@@ -6,14 +6,19 @@ import { ProTypeRed } from "../Redux/Slice/ProductTypeSlice";
 import { setLastIndex } from "../Redux/Slice/LoadMore";
 export default function PopularProd() {
   const dispatch = useDispatch();
+
   const img = [
-    { value: "", name: "All" },
-    { value: "organic", name: "Organic" },
-    { value: "insectiside", name: "Insectiside" },
-    { value: "herbicide", name: "Herbicide" },
-    { value: "fungicide", name: "Fungicide" },
-    { value: "cow", name: "Cow Feeds" },
+    { name: "All", value: "" },
+    { value: "Cricket", name: "Cricket" },
+    { value: "Football", name: "Football" },
+    { value: "Hockey", name: "Hockey" },
+    { value: "Gym", name: "Gym" },
+    { value: "Basketball", name: "Basketball" },
+    { value: "Tennis", name: "Tennis" },
+    { value: "Badminton", name: "Badminton" },
+    { value: "Boxing", name: "Boxing" },
   ];
+
   const [selType, setSelType] = React.useState("");
   const SelectType = (selType) => {
     dispatch(ProTypeRed(selType));
@@ -24,7 +29,7 @@ export default function PopularProd() {
   return (
     <>
       <main className="flex flex-col bg-white justify-center  items-center  gap-7  ">
-        <h1 className="text- font-bold text-xl"> Popular Products</h1>
+        <h1 className="text- font-bold text-xl"> Popular Sport Equipments</h1>
         <div
           id="prod"
           className="flex lg:flex-row flex-col gap-[15px]  justify-center items-center "
