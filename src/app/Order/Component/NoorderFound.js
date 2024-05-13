@@ -8,7 +8,7 @@ export default function NoorderFound() {
             <div className='flex justify-center items-center h-screen'>
                 <div className='flex justify-center flex-col gap-3 mb-[70px] items-center'>
                     <p className='lg:text-xl text-sm font-bold '>😀 Order Not Found 😀 </p>
-                    <Button className='bg-teal-500 text-white ' onClick={() => router.push("/#prod")}>Order Now</Button>
+                    <Button className='bg-sky-500 text-white ' onClick={() => router.push("/#prod")}>Order Now</Button>
                 </div>
             </div>
 

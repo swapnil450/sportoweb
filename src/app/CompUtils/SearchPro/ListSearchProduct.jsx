@@ -52,12 +52,12 @@ export default function ListSearchProduct({ search, onClose }) {
                 </p>
 
                 <div className="flex flex-row  justify-center items-center lg:gap-4 gap-16 ">
-                  <p className="text-[#3BB77E] font-bold text-[16px] ">
+                  {/* <p className="text-[#3BB77E] font-bold text-[16px] ">
                     ₹{item.price}
                     <span className="text-[10px] line-through   text-gray-400">
                       ₹{Number(item.price) + 100}
                     </span>
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </>

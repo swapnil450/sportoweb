@@ -3,7 +3,7 @@ import React from "react";
 export default function Banner() {
   return (
     <>
-      <div className="relative w-full h-[30px]  flex flex-wrap text-white bg-teal-500 justify-center items-center ">
+      <div className="relative w-full h-[30px]  flex flex-wrap text-white bg-sky-500 justify-center items-center ">
         <div className="lg:text-sm text-xs">
           Order Now 10% discount On All Products .
         </div>

@@ -21,8 +21,11 @@ export default function page() {
       <div className="flex flex-col justify-center items-center lg:gap-5 gap-5 p-2">
         {/* <Categoriespro /> */}
         {/* <Hero /> */}
-        <Offer link={`https://contents.mediadecathlon.com/s1081697/k$f54f524c7331145dbf08a34bc9b2ab18/defaut.jpg?format=auto&quality=70&f=1024x0
-`} />
+        {/* <div className="grid lg:grid-cols-2 grid-cols-2 md:grid-cols-3 mt-[30px]   gap-3 lg:gap-5"> */}
+        <Offer
+          link={`https://res.cloudinary.com/dutpoqbev/image/upload/v1713767301/4_kt2h1v.png`}
+        />
+        {/* </div> */}
         <PopularProd />
       </div>
     </>

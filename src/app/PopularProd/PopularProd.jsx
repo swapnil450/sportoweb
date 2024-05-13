@@ -9,17 +9,22 @@ export default function PopularProd() {
 
   const img = [
     { name: "All", value: "" },
-    { value: "Cricket", name: "Cricket" },
-    { value: "Football", name: "Football" },
-    { value: "Hockey", name: "Hockey" },
-    { value: "Gym", name: "Gym" },
-    { value: "Basketball", name: "Basketball" },
-    { value: "Tennis", name: "Tennis" },
-    { value: "Badminton", name: "Badminton" },
-    { value: "Boxing", name: "Boxing" },
+    { value: "Hostels", name: "Hostels" },
+    { value: "Rooms", name: "Rooms" },
+    { value: "Stationary", name: "Stationary" },
+    { value: "Libraries", name: "Libraries" },
+    { value: "Mess", name: "Mess" },
+  ];
+  const location = [
+    { value: "Pune", name: "Pune" },
+    { value: "Hydrabad", name: "Hydrabad" },
+    { value: "Mumbai", name: "Mumbai" },
+    { value: "Banglore", name: "Banglore" },
+    // { value: "Gujrat", name: "Gujrat" },
   ];
 
   const [selType, setSelType] = React.useState("");
+  const [selTypel, setSelTypel] = React.useState("");
   const SelectType = (selType) => {
     dispatch(ProTypeRed(selType));
     dispatch(setLastIndex(8));
@@ -28,13 +33,13 @@ export default function PopularProd() {
 
   return (
     <>
-      <main className="flex flex-col bg-white justify-center  items-center  gap-7  ">
-        <h1 className="text- font-bold text-xl"> Popular Sport Equipments</h1>
+      <main className="flex lg:flex-col flex-col bg-white justify-center  items-center  gap-7  ">
+       
         <div
           id="prod"
           className="flex lg:flex-row flex-col gap-[15px]  justify-center items-center "
         >
-          <div className="flex mt-3 flex-wrap gap-4 lg:gap-10 justify-center items-center">
+          <div className="flex mt-3 flex lg:flex-row flex-wrap gap-4  justify-center items-center">
             {img?.map((i) => {
               return (
                 <>
@@ -43,7 +48,7 @@ export default function PopularProd() {
                     onClick={() => SelectType(i.value)}
                     className={
                       selType === i.value
-                        ? `font-semibold text-xs lg:text-sm  bg-teal-500 rounded-lg p-2 text-white  hover:-translate-y-1 cursor-pointer`
+                        ? `font-semibold text-xs lg:text-sm  bg-sky-500 rounded-lg p-2 text-white  hover:-translate-y-1 cursor-pointer`
                         : `font-semibold text-xs bg-gray-50 rounded-lg p-2 text-gray-800  hover:-translate-y-1 cursor-pointer`
                     }
                   >
@@ -54,7 +59,26 @@ export default function PopularProd() {
             })}
           </div>
         </div>
-        <PopularProdList selType={selType} />
+        <div className="flex mt-3 flex lg:flex-row flex-wrap gap-4  justify-center items-center">
+          {location?.map((i) => {
+            return (
+              <>
+                <p
+                  key={i}
+                  onClick={() => setSelTypel(i.value)}
+                  className={
+                    selTypel === i.value
+                      ? `font-semibold text-xs lg:text-sm  bg-sky-500 rounded-lg p-2 text-white  hover:-translate-y-1 cursor-pointer`
+                      : `font-semibold text-xs bg-gray-50 rounded-lg p-2 text-gray-800  hover:-translate-y-1 cursor-pointer`
+                  }
+                >
+                  {i.name}
+                </p>
+              </>
+            );
+          })}
+        </div>
+        <PopularProdList selType={selType} selTypel={selTypel} />
       </main>
     </>
   );

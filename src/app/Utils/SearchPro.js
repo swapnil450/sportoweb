@@ -7,6 +7,7 @@ export const SearchIcon = (props) => (
     fill="none"
     focusable="false"
     height="1em"
+    color="#000"
     role="presentation"
     viewBox="0 0 24 24"
     width="1em"

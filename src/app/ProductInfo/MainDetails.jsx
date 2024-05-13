@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { DataProvideBYHook } from "../DataProviderContext/DataProviderContext";
 import { useParams } from "next/navigation";
 import LoaderSuspense from "../Utils/Loader/LoaderSuspense";
+import Iframe from 'react-iframe'
 export default function MainDetails() {
   const param = useParams();
   const { proData, loading } = DataProvideBYHook();
@@ -19,6 +20,7 @@ export default function MainDetails() {
     return <LoaderSuspense />;
   }
 
+  console.log(FilteredproductData);
   return (
     <>
       <ToastContainer />
@@ -36,11 +38,30 @@ export default function MainDetails() {
                 <ProductDes des={i} />
               </div>
             </div>
-            <div className="flex justify-center items-center">
+            {/* <div className="flex justify-center items-center">
               <MoreInfo des={i} />
+            </div> */}
+            <div classname="flex justify-center items-center">
+              {/* <iframe
+                src=""
+                width="600"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe> */}
+              <Iframe url={i?.stock}
+        width="100%"
+        height="500px"
+        id=""
+        className=""
+        display="block"
+        position="relative"/>
             </div>
+
             <div className="flex justify-center items-center">
-              <Related type={i.type} />
+              <Related type={i?.type} />
             </div>
           </>
         );

@@ -77,7 +77,7 @@ const RootLayout = ({ children }) => {
               <Provider store={Store}>
                 <DataProviderContext>
                   <Suspense fallback={<LoaderSuspense />}>
-                    <Banner />
+                    {/* <Banner /> */}
                     <Navbarcom />
                     {children}
                     <Specification />

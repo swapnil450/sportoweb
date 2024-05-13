@@ -27,25 +27,25 @@ export default function Navbarcom() {
               className="flex flex-row gap-2 cursor-pointer justify-center items-center"
             >
               {/* <Image width={50} alt="h" height={50} src="/sbt.png" /> */}
-              <p className="text-black inline-flex flex-col  font-bold lg:text-sm text-xs">
-                <span className="">SPORTO</span>
+              <p className="text-black inline-flex flex-col  font-bold lg:text-sm text-xl">
+                <span className="text-2xl">UNIFINDER</span>
               </p>
             </div>
           </NavbarBrand>
         </NavbarContent>
 
-        {user?.name ? (
-          <NavbarContent
-            as="div"
-            className="items-center lg:gap-6 gap-3"
-            justify="end"
-          >
-            <HandleSearch />
-            <Order />
-            <Cart />
-            <Account />
-          </NavbarContent>
-        ) : (
+        {/* {user?.name ? ( */}
+        <NavbarContent
+          as="div"
+          className="items-center lg:gap-6 gap-3"
+          justify="end"
+        >
+          <HandleSearch />
+          {/* <Order /> */}
+          {/* <Cart /> */}
+          {/* <Account /> */}
+        </NavbarContent>
+        {/* ) : (
           <NavbarContent as="div" className="items-center gap-6" justify="end">
             <HandleSearch />
             <Cart />
@@ -61,7 +61,7 @@ export default function Navbarcom() {
               setStatus={setStatus}
             />
           </NavbarContent>
-        )}
+        )} */}
       </Navbar>
     </>
   );

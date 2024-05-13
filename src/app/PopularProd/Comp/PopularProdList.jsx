@@ -16,7 +16,7 @@ import {
 import { DataProvideBYHook } from "@/app/DataProviderContext/DataProviderContext";
 import { setLastIndex } from "../../Redux/Slice/LoadMore";
 import SkeletonPro from "../../Utils/Loader/SkeletonPro";
-export default function PopularProdList({ selType }) {
+export default function PopularProdList({ selType, selTypel }) {
   const dispatch = useDispatch();
   const { proData, loading, DataLength } = DataProvideBYHook();
   const [load, setLoad] = React.useState(8);
@@ -25,11 +25,14 @@ export default function PopularProdList({ selType }) {
     dispatch(setLastIndex(load));
     setLoad(load);
   };
+
+  console.log(proData);
   const FilteredproductData =
-    selType === ""
+    selType === "" || selTypel === ""
       ? proData
-      : proData?.filter((i) => i.type === String(selType));
-      console.log(FilteredproductData)
+      : proData?.filter((i) => i?.type === selType && i?.shipping
+        === selTypel);
+
   return (
     <>
       {loading || !FilteredproductData ? (
@@ -59,10 +62,10 @@ export default function PopularProdList({ selType }) {
                     <div className="flex flex-wrap justify-start items-start ">
                       <p class=" font-semibold inline-flex flex-col gap-1 text-gray-800 lg:text-sm text-[10px]">
                         {item.product_name}
-                        <span className="  text-teal-500 lg:text-xl font-bold text-sm  leading-none flex items-center">
+                        {/* <span className="  text-teal-500 lg:text-xl font-bold text-sm  leading-none flex items-center">
                           {" "}
-                          ₹{item.price}
-                        </span>
+                          {item.off}% off
+                        </span> */}
                       </p>
                     </div>
                   </div>
@@ -73,7 +76,7 @@ export default function PopularProdList({ selType }) {
           {DataLength < load ? null : (
             <Button
               onClick={() => GetDataOnLoad(load + 8, DataLength)}
-              className="bg-teal-500 text-white font-bold"
+              className="bg-sky-500 text-white font-bold"
             >
               Load More
             </Button>

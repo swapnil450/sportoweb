@@ -64,7 +64,7 @@ export default function CheckOut({
           <Button
             onClick={() => HandlePlaceOrder(onOpen)}
             size="lg"
-            className="bg-teal-500 w-full font-bold text-white"
+            className="bg-sky-500 w-full font-bold text-white"
           >
             PLACE ORDER
           </Button>
@@ -158,7 +158,7 @@ export default function CheckOut({
                         class="p-2 text-sm w-full"
                       />
                     </div> */}
-                    {/* <button class="bg-teal-500 hover:bg-teal-600 px-5 py-2 text-sm text-white uppercase">
+                    {/* <button class="bg-sky-500 hover:bg-sky-600 px-5 py-2 text-sm text-white uppercase">
                       Apply
                     </button> */}
                     <div class="border-t mt-8">
@@ -207,7 +207,7 @@ export default function CheckOut({
                 <Button
                   isDisabled={check === true ? false : true}
                   color="#00DDB8"
-                  className="bg-teal-500 text-white font-bold"
+                  className="bg-sky-500 text-white font-bold"
                   onPress={() =>
                     OrderPlaced(orderfinal, setOrderLoad, setStatus, setCheck, onClose)
                   }

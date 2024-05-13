@@ -20,7 +20,7 @@ export default function MoreInfo({ des }) {
                   onClick={() => setTab(itm)}
                   className={
                     itm === tab
-                      ? `lg:p-3 p-2 bg-teal-500 text-white font-bold cursor-pointer lg:text-[16px] text-[14px] rounded-[20px] shadow-xl -translate-y-1`
+                      ? `lg:p-3 p-2 bg-sky-500 text-white font-bold cursor-pointer lg:text-[16px] text-[14px] rounded-[20px] shadow-xl -translate-y-1`
                       : `lg:p-3 p-2 bg-gray-100 text-black font-semibold cursor-pointer lg:text-[16px] text-[14px] rounded-[20px] hover:shadow-lg hover:-translate-y-1`
                   }
                 >

@@ -14,7 +14,7 @@ export default function Related({ type }) {
       <main className="flex flex-col lg:mt-[50px] justify-center items-center  ">
         <h1 className="text-start font-bold text-2xl mb-10">
           {" "}
-          Related Products
+          Related Services
         </h1>
 
         {flag === true ? (
@@ -43,10 +43,10 @@ export default function Related({ type }) {
                     <div className="flex flex-wrap justify-start items-start ">
                       <p class=" font-semibold inline-flex flex-col gap-1 text-gray-800 lg:text-sm text-[10px]">
                         {item.product_name}
-                        <span className="  text-teal-500 lg:text-xl font-bold text-sm  leading-none flex items-center">
+                        {/* <span className="  text-teal-500 lg:text-xl font-bold text-sm  leading-none flex items-center">
                           {" "}
-                          ₹{item.price}
-                        </span>
+                          {item?.price}
+                        </span> */}
                       </p>
                     </div>
                   </div>

@@ -36,6 +36,7 @@ export default function DataProviderContext({ children }) {
         off
         praman
         price
+        shipping
         pricelist
         product_name
         review
