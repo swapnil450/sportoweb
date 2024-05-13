@@ -9,7 +9,7 @@ const nextConfig = {
     ],
   },
   env: {
-    GRAPHQL_SERVER: "https://listing-indol.vercel.app/graph",
+    GRAPHQL_SERVER: "https://serverlisting.vercel.app/graph",
     SHIPPING: "Pay To Delivery Partner",
     Discount: "10",
   },
